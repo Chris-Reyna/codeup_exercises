@@ -1,6 +1,32 @@
 <?php
 
-$number = mt_rand(1,100);
+if ($argc == 3) {
+
+
+$min = $argv[1];
+
+$max = $argv[2];
+
+} else {
+
+	echo "Follow directions and put in a min and max value NOW!\n";
+
+	exit(0);
+}
+
+if (!is_numeric($min) || !is_numeric($max)) {
+
+	echo "I said use a number BRO!!\n";
+
+	exit(0);
+}
+
+
+$number = mt_rand($min, $max);
+
+
+
+
 
 
 $attempts = 0;
