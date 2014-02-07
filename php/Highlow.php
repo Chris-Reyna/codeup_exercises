@@ -1,12 +1,31 @@
 <?php
  
+if ($argc == 3) {
+
+	$min = $argv[1];
+	$max = $argv[2];
+
+} else {
+
+	echo "I need two numbers a min and a max\n";
+
+	exit(0);
+}
+
+if (!is_numeric($min) || !is_numeric($max)) {
+
+	echo "They must be numbers!!!\n";
+
+	exit(0);
+}
+
+
+
+
  // random number
-$number = rand(1,100);
-//prompt user to pick a number using fwrite stdout
-//fwrite(STDOUT, 'Guess a number!! ');
-//$guess fgets stdin
-//$guess = fgets(STDIN);
-//if $guess is right echo winner!
+$number = mt_rand($min,$max);
+
+$attempts = 0;
 
 do {
 
@@ -14,35 +33,28 @@ do {
 
 		$guess = fgets(STDIN);
 
+			
+
 		if ($number < $guess) {
 			echo 'LOWER! ';
 
+			$attempts++;
+
 		} elseif ($number > $guess) {
 			echo 'HIGHER! ';
+
+			$attempts++;
 		}
 
 
 } while ($number != $guess);
 
-echo 'WINNER';
+echo "WINNER!! In $attempts tries!!\n";
 
 
 
 
-// if ($guess = {
-// 	echo 'WINNER! ';
-// }
-// 	else ($guess < rand(1,100) {
-// 		echo 'HIGHER';
-	
-// }
-// 	else ($guess > rand(1,100) {
-// 		echo 'LOWER';
-// 	}
 
-// while (($guess < rand(1,100)) || ($guess > rand(1,100)));
-//while ($guess < STDIN) echo 'higher'
-// ||($guess > STDIN) echo 'lower'
 
 exit(0)
 ?>
