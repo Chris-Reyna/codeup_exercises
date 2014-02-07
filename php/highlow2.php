@@ -1,10 +1,15 @@
 <?php
 
-$number = rand(1,100);
+$number = mt_rand(1,100);
+
+
+$attempts = 0;
 
 fwrite(STDOUT, 'Guess a number!! ');
 
 $guess = fgets(STDIN);
+
+		$attempts++;
 
 while ($guess != $number) {
 	
@@ -13,9 +18,13 @@ while ($guess != $number) {
 
 		echo "HIGHER\n";
 
+		$attempts++;
+
 	} elseif ($guess > $number) {
 
 		echo "LOWER\n";
+
+		$attempts++;
 	}
 
 	fwrite(STDOUT, 'Guess a number!! ');
@@ -24,7 +33,8 @@ while ($guess != $number) {
 }
 
 
-echo "WINNER!\n";
+
+echo "WINNER! Completed in $attempts tries!!\n";
 
 
 
