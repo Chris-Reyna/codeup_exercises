@@ -33,7 +33,7 @@ do {
 
 		$guess = fgets(STDIN);
 
-			
+			$attempts++;	
 
 		if ($number < $guess) {
 			echo 'LOWER! ';
