@@ -3,10 +3,14 @@
 // Create array to hold list of todo items
 $items = array();
 
+
+
 // The loop!
 do {
     // Iterate through list items
     foreach ($items as $key => $item) {
+        $key++;
+
         // Display each item and a newline
         echo "[{$key}] {$item}\n";
     }
@@ -26,12 +30,14 @@ var_dump($input);
         echo 'Enter item: ';
         // Add entry to list array
         $items[] = trim(fgets(STDIN));
+
     } elseif ($input == 'R' || $input == 'r') {
         // Remove which item?
         echo 'Enter item number to remove: ';
         // Get array key
         $key = trim(fgets(STDIN));
         // Remove from array
+        $key--;
         unset($items[$key]);
     }
 // Exit when input is (Q)uit
