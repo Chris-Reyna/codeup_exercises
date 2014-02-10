@@ -18,7 +18,7 @@ $books = array(
 
 		'pages' => 835),
 
-	'The Cathcher in the Rye' => array(
+	'The Catcher in the Rye' => array(
 
 		'published' => 1951,
 
@@ -37,15 +37,15 @@ $books = array(
 	);
 
 foreach ($books as $title => $book) {
+	
+		if ($book['published'] > 1950) {
 
-	echo "$title\n";
-
-		foreach ($book as $key => $value) {
-
-			echo "$key is $value\n";
+			echo "$title:\n";
+			echo "published: " . $book['published'] . "\n";
+			echo "Author: " . $book['author'] . "\n";
+			echo "Pages" . $book['pages'] . "\n";
 
 		}
-
+	
 }
-
 ?>
