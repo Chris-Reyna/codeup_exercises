@@ -78,17 +78,21 @@ switch($day_of_week) {
 
    		break;
 
-   	case 6: 
+   	default: 
 
-   		echo "Saturday\n";
+   		echo "Its the weekend!\n";
 
-   		break;
+   	// case 6: 
 
-   	case 7: 
+   	// 	echo "Saturday\n";
 
-   		echo "Sunday\n";
+   	// 	break;
 
-   		break;
+   	// case 7: 
+
+   	// 	echo "Sunday\n";
+
+   	// 	break;
         
 }
 ?>
