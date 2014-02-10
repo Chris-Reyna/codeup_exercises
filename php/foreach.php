@@ -6,7 +6,7 @@ foreach ($things as $thingy) {
 
 	if (is_scalar($thingy)) {
 
-		echo "{$thingy} is a scalar\n";	}
+		echo "{$thingy}\n";	}
 
 
 
@@ -16,13 +16,13 @@ foreach ($things as $thingy) {
 
 			foreach ($thingy as $array) {
 
-				echo "{$array} is a number\n";
+				echo "{$array}\n";
 			}
 				}
 
 	elseif (is_null($thingy)){
 
-		echo "{$thingy} is null\n";	}
+		echo "{$thingy}\n";	}
 
 
 }
