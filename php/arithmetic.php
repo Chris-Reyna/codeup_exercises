@@ -67,7 +67,7 @@ $first = 100;
 $second = 67;
 
 valid('hi', 3); 
-add($second, 'r');
+add($second, 9);
 subtract(40, 'h');
 multiply('five',9);
 divide(19, 20);
