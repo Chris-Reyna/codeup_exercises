@@ -20,37 +20,37 @@ function valid($a,$b) {
 function add($a,$b) {
 
 	if (valid($a, $b)) {
-
-		echo $a + $b . "\n";
- 	}			
+		return $a + $b;
+ 	} else {
+ 		return 0;
+ 	}		
 
 }
 
 function subtract($a,$b) {
 	if (valid($a, $b)) {
-	echo $a - $b . "\n";
-	}
+	return $a - $b;
+	}else { return 0;}
 }
 
 function multiply($a,$b) {
 	if (valid($a, $b)) {
-	echo $a * $b . "\n";
+	return $a * $b;
+	}else { return 0;
 	}
 }
-
 function divide($a,$b) {
+	 if (($b > $a) || ($b == 0) || ($a == 0)) {
 
-	if (valid($a, $b)) {
+	 	return 0;
 
-		return false;
 
-	}else if (($b > $a) || ($b == 0) || ($a == 0)) {
+	}elseif (valid($a, $b)) {
+
+		return $a / $b; }
 
 		
-
-		return false;
-		
-	}else {	echo $a / $b . "\n";
+	else {	return "invalid character";
 		
 	}
 	
@@ -58,19 +58,18 @@ function divide($a,$b) {
 
 function mod($a,$b) {
 	if (valid($a, $b)) {
-	echo $a % $b . "\n";
+	return $a % $b;
+	}else {return 0;
 	}
-
 }
-
 $first = 100;
 $second = 67;
 
 valid('hi', 3); 
-add($second, 9);
-subtract(40, 'h');
-multiply('five',9);
-divide(19, 20);
-mod('first', 3);
+echo add($second, 9) . PHP_EOL;
+echo subtract(40, 'h') . PHP_EOL;
+echo multiply('five',9) . PHP_EOL;
+echo divide(19, 20) . PHP_EOL;
+echo mod('first', 3) . PHP_EOL;
 
 ?>
