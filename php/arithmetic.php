@@ -2,7 +2,16 @@
 
 function add($a,$b) {
 
-	echo $a + $b . "\n";
+	if (is_numeric($a) && is_numeric($b)) {
+
+		echo $a + $b . "\n";
+
+	}else {	
+
+		echo "ERROR Please enter a number!!\n";
+	}
+
+		
 
 }
 
@@ -21,7 +30,7 @@ function multiply($a,$b) {
 function divide($a,$b) {
 
 	echo $a / $b . "\n";
-
+//can not divide by zero
 }
 
 function mod($a,$b) {
