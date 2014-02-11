@@ -30,10 +30,13 @@ function mod($a,$b) {
 
 }
 
-add(25, 5);
+$first = 100;
+$second = 67;
+
+add($second, 5);
 subtract(40, 10);
 multiply(5,6);
-divide(150, 5);
+divide($first, 5);
 mod(154, 5);
 
 ?>
