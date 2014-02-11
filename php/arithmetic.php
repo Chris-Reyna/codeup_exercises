@@ -1,57 +1,76 @@
 <?php
 
-function add($a,$b) {
+// function valid ($a, $b) {
+// 	return (is_numeric($a) && is_numeric($b));
+// }
 
-	if (is_numeric($a) && is_numeric($b)) {
+function valid($a,$b) {
 
-		echo $a + $b . "\n";
+	if (!is_numeric($a) || !is_numeric($b)) {
 
-	}else {	
-
-		echo "ERROR Please enter a number!!\n";
+		return false;
+	}else {	 
+		return true;
 	}
 
-		
+
+}	
+
+
+function add($a,$b) {
+
+	if (valid($a, $b)) {
+
+		echo $a + $b . "\n";
+ 	}			
 
 }
 
 function subtract($a,$b) {
-
+	if (valid($a, $b)) {
 	echo $a - $b . "\n";
-
+	}
 }
 
 function multiply($a,$b) {
-
+	if (valid($a, $b)) {
 	echo $a * $b . "\n";
-
+	}
 }
 
 function divide($a,$b) {
 
-	if ($b == 0) {
+	if (valid($a, $b)) {
 
-		echo "you can not divide by Zero!!\n";
+		return false;
 
+	}else if (($b > $a) || ($b == 0) || ($a == 0)) {
+
+		
+
+		return false;
+		
 	}else {	echo $a / $b . "\n";
-
+		
 	}
-//can not divide by zero
+	
 }
 
 function mod($a,$b) {
-
+	if (valid($a, $b)) {
 	echo $a % $b . "\n";
+	}
 
 }
 
 $first = 100;
 $second = 67;
 
-add($second, 5);
-subtract(40, 10);
-multiply(5,6);
-divide($first, 0);
-mod(154, 5);
+valid('hi', 3); 
+add($second, 'r');
+subtract(40, 'h');
+multiply('five',9);
+divide(19, 20);
+mod('first', 3);
 
 ?>
