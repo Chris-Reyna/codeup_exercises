@@ -22,7 +22,7 @@ do {
     // Use trim() to remove whitespace and newlines
     $input = trim(fgets(STDIN));
 
-var_dump($input);
+//var_dump($input);
 
     // Check for actionable input
     if ($input == 'N' || $input == 'n') {
