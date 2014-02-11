@@ -29,7 +29,13 @@ function multiply($a,$b) {
 
 function divide($a,$b) {
 
-	echo $a / $b . "\n";
+	if ($b == 0) {
+
+		echo "you can not divide by Zero!!\n";
+
+	}else {	echo $a / $b . "\n";
+
+	}
 //can not divide by zero
 }
 
@@ -45,7 +51,7 @@ $second = 67;
 add($second, 5);
 subtract(40, 10);
 multiply(5,6);
-divide($first, 5);
+divide($first, 0);
 mod(154, 5);
 
 ?>
