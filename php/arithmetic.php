@@ -24,10 +24,16 @@ function divide($a,$b) {
 
 }
 
+function mod($a,$b) {
+
+	echo $a % $b . "\n";
+
+}
+
 add(25, 5);
 subtract(40, 10);
 multiply(5,6);
 divide(150, 5);
-
+mod(154, 5);
 
 ?>
