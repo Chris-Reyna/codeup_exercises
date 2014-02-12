@@ -3,39 +3,52 @@
 // Create array to hold list of todo items
 $items = array();
 
+// List array items formatted for CLI
+function list_items($array) {
 
+    $string = '';
 
-// The loop!
-do {
-    // Iterate through list items
-    foreach ($items as $key => $item) {
-        $key++;
+    foreach ($array as $key => $value) {
 
-        // Display each item and a newline
-        echo "[{$key}] {$item}\n";
+        $string .= ++$key . $value . PHP_EOL;
     }
 
-    // Show the menu options
+    return $string;
+}
+
+echo list_items($items);
+
+// Get STDIN, strip whitespace and newlines, 
+// and convert to uppercase if $upper is true
+function get_input($upper = FALSE) {
+
+    $u_case = trim(fgets(STDIN));
+     return ($upper) ? strtoupper($u_case) : $u_case;
+    
+}
+// The loop!
+do {
+
+    echo list_items($items);
+
+  // Show the menu options
     echo '(N)ew item, (R)emove item, (Q)uit : ';
 
     // Get the input from user
-    // Use trim() to remove whitespace and newlines
-    $input = trim(fgets(STDIN));
+    $input = get_input(TRUE);
 
-//var_dump($input);
-
-    // Check for actionable input
-    if ($input == 'N' || $input == 'n') {
+  // Check for actionable input
+    if ($input == 'N') {
         // Ask for entry
         echo 'Enter item: ';
         // Add entry to list array
-        $items[] = trim(fgets(STDIN));
+        $items[] = get_input(FALSE);
 
-    } elseif ($input == 'R' || $input == 'r') {
+    } elseif ($input == 'R') {
         // Remove which item?
         echo 'Enter item number to remove: ';
         // Get array key
-        $key = trim(fgets(STDIN));
+        $key = get_input(FALSE);
         // Remove from array
         $key--;
         unset($items[$key]);
