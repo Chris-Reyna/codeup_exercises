@@ -11,7 +11,7 @@ function empty_set($check) {
 	if (isset($check)) {
 
 		return true;
-	}elseif (empty($check)) {	 
+	}elseif (!empty($check)) {	 
 		return true;
 	}else{
 		return false;
@@ -24,36 +24,40 @@ function empty_set($check) {
 
 // var_dump(empty_set($something));
 
-
-
-if (empty_set($nothing)) {
-
-		echo "\$nothing is SET\n";
-}else{
-
-	 echo "\$nothing is not SET\n";
-}
-
-
-if (empty_set($nothing)) {
-
-		echo "$nothing is empty\n";
-}else{
-		echo "$nothing is not empty\n";
-}
-
-
-//var_dump(isset($nothing));
-//var_dump(empty($nothing));
-
-
-//var_dump(isset($nothing));
-
 // TEST: If var $nothing is set, display '$nothing is SET'
-//var_dump(empty_set($nothing));
+
+if (empty_set($nothing)) {
+
+		echo "\$nothing is SET\n"; //true
+}else{
+
+	 echo "\$nothing is not SET\n"; //false
+}
+
+
 // TEST: If var $nothing is empty, display '$nothing is EMPTY'
 
+if (empty_set($nothing)) {
+
+		echo "\$nothing is not empty\n"; //true
+}else{
+		echo "\$nothing is empty\n"; //false
+}
+
+
+
+
+
+
 // TEST: If var $something is set, display '$something is SET'
+if (empty_set($something)) {
+
+		echo "\$something is SET\n";
+}else{
+
+	 echo "\$something is not SET\n";
+}
+
 
 // Serialize the array $array, and output the results
 
