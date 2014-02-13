@@ -27,18 +27,20 @@ function get_input($upper = FALSE) {
     
 }
 
-// function place_item($array, $value) {
+function file_open($file = TRUE) {
+    //echo 'which file would you like to open?:"\n" ';
+    //$name_file = get_input(TRUE); 
 
-//     $input = get_input(TRUE);
+//need to add variable for file name and option for which file they want
 
-//     if ($input) {
+    $open = fopen( 'data/to_list.txt', "r");
 
+    $content = fread($open, filesize('data/to_list.txt'));
 
-//     }
+    echo 'end of open';
+    return $content;
+}
 
-
-// }
-// The loop!
 do {
 
     echo list_items($items);
@@ -104,6 +106,12 @@ do {
     }else if ($input == 'L') {
 
         array_pop($items);
+
+    }elseif ($input == 'O') {
+
+       $file = file_open(TRUE);
+
+        echo $file;
     }
 
 
