@@ -44,7 +44,7 @@ do {
     echo list_items($items);
 
   // Show the menu options
-    echo '(N)ew item, (R)emove item, (S)ort items, (Q)uit : ';
+    echo '(N)ew item, (R)emove item, (S)ort items, (F)irst item removal, (L)ast item removal, (Q)uit : ';
 
     // Get the input from user
     $input = get_input(TRUE);
@@ -97,6 +97,13 @@ do {
 
         }
 
+    }elseif ($input == 'F') {
+
+
+        array_shift($items);
+    }else if ($input == 'L') {
+
+        array_pop($items);
     }
 
 
