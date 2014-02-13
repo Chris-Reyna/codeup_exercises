@@ -44,7 +44,7 @@ do {
     echo list_items($items);
 
   // Show the menu options
-    echo '(N)ew item, (R)emove item, (S)ort items, (F)irst item removal, (L)ast item removal, (Q)uit : ';
+    echo '(N)ew item, (R)emove item, (S)ort items, (F)irst item removal, (L)ast item removal, (O)pen file,(Q)uit : ';
 
     // Get the input from user
     $input = get_input(TRUE);
