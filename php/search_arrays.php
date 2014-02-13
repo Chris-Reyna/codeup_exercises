@@ -5,20 +5,24 @@ $names = ['Tina', 'Dana', 'Mike', "Amy", 'Adam'];
 
 $compare = ['Tina', 'Dean', 'Mel', 'Amy', 'Michael'];
 
-//function array_search($names) {
+function search($name, $arrays) {
 
 //	$name = '';
 
-	$name = 'Amy';
+	//$name = 'Bob';
 
-	$results = array_search($name, $names);
+	$results = array_search($name, $arrays);
 
 	
 
-	if ($results) {
+	if ($results === FALSE) {
 
-		echo $names [$results];
+		return FALSE;
 	}
-//}
 
-var_dump($results);
+	return TRUE;
+}
+
+//var_dump my function and set the name desired and variable to search
+var_dump(search('Tina', $names));
+var_dump(search('Bob', $names));
