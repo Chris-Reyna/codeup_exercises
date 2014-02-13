@@ -27,6 +27,17 @@ function get_input($upper = FALSE) {
     
 }
 
+// function place_item($array, $value) {
+
+//     $input = get_input(TRUE);
+
+//     if ($input) {
+
+
+//     }
+
+
+// }
 // The loop!
 do {
 
@@ -40,10 +51,23 @@ do {
 
   // Check for actionable input
     if ($input == 'N') {
-        // Ask for entry
+        
         echo 'Enter item: ';
         // Add entry to list array
-        $items[] = get_input(FALSE);
+        $new_item = get_input(FALSE);
+
+        echo '(B)eginning or (E)nd of list: ';
+        $new_item2 = get_input(TRUE);
+
+        if ($new_item2 == 'B') {
+
+            array_unshift($items, $new_item );
+        }elseif ($new_item2 == 'E') {
+            array_push($items, $new_item);
+        }
+        // Ask for entry
+        //ask the user if they want to add it to the beginning or end of the list
+       
 
     } elseif ($input == 'R') {
         // Remove which item?
