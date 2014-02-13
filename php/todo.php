@@ -56,7 +56,6 @@ do {
    
     } elseif ($input == 'S') {
         
-
         echo '(A)-Z or (Z)-A:';
 
         $sort_input = get_input(TRUE);
@@ -65,17 +64,20 @@ do {
 
         //get input 
         if ($sort_input == 'Z') {
+            
+            rsort($items);
 
-             rsort($items);
         }elseif ($sort_input =='A') {
+            
             sort($items);
+
         }
 
     }
 
 
 // Exit when input is (Q)uit
-} while ($input != 'Q' && $input != 'q');
+} while ($input != 'Q');
 
 // Say Goodbye!
 echo "Goodbye!\n";
