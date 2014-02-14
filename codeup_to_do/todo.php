@@ -31,7 +31,6 @@ function file_open($file = TRUE) {
     echo 'which file would you like to open?:';
     $name_file = get_input(TRUE); 
 
-//need to add variable for file name and option for which file they want
     $filename = $name_file;
 
     $handle = fopen($filename, "r");
@@ -39,9 +38,22 @@ function file_open($file = TRUE) {
     $content = fread($handle, filesize($filename));
 
     fclose($handle);
-    //echo 'end of open';
+    
     return $content;
 
+    
+}
+
+function file_save($array) {
+    echo 'PLease enter file you want to create or rewrite:'; 
+
+    $filename = get_input(TRUE);
+    $handle = fopen($filename, "w");
+        foreach($array as $item) {
+            fwrite($handle, PHP_EOL . $item);
+        }
+    
+    fclose($handle);
     
 }
 
@@ -71,9 +83,7 @@ do {
         }elseif ($new_item2 == 'E') {
             array_push($items, $new_item);
         }
-        // Ask for entry
-        //ask the user if they want to add it to the beginning or end of the list
-       
+        
 
     } elseif ($input == 'R') {
         // Remove which item?
@@ -113,9 +123,28 @@ do {
 
     }elseif ($input == 'O') {
 
-       $file = file_open(TRUE);
+        echo 'Would you like to (S)ave or (O)pen a file?:';
 
-        echo $file . "\n";
+       $input_open =  get_input(TRUE);
+
+       if ($input_open == 'O') {
+            $file = file_open(TRUE);
+
+            echo $file . "\n";
+       
+       }elseif ($input_open == 'S') {
+            echo 'Enter (P)roceed if you are wanting to rewrite an existing file or (N)ot:';
+            
+            $input_open =  get_input(TRUE);
+
+            if ($input_open == 'P') {
+
+                $file_save = file_save($items);
+
+                 echo 'File saved' . "\n" . 'Success!! Your file was saved' . "\n" ;
+            }
+       }
+
     }
 
 
