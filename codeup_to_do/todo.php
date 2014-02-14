@@ -27,11 +27,10 @@ function get_input($upper = FALSE) {
     
 }
 
-function file_open($file = TRUE) {
+function file_open() {
     echo 'which file would you like to open?:';
-    $name_file = get_input(TRUE); 
-
-    $filename = $name_file;
+    
+    $filename =  get_input(); 
 
     $handle = fopen($filename, "r");
 
@@ -44,14 +43,15 @@ function file_open($file = TRUE) {
     
 }
 
-function file_save($array) {
+function file_save($array1) {
     echo 'PLease enter file you want to create or rewrite:'; 
 
-    $filename = get_input(TRUE);
+    $filename = get_input();
     $handle = fopen($filename, "w");
-        foreach($array as $item) {
-            fwrite($handle, PHP_EOL . $item);
-        }
+        //foreach($array1 as $item) {
+    $string_items = implode("\n", $array1);
+            fwrite($handle, $string_items);
+        //}
     
     fclose($handle);
     
@@ -128,21 +128,24 @@ do {
        $input_open =  get_input(TRUE);
 
        if ($input_open == 'O') {
-            $file = file_open(TRUE);
+            $file = file_open();
 
-            echo $file . "\n";
+           $new_items = explode("\n", $file);
+
        
        }elseif ($input_open == 'S') {
             echo 'Enter (P)roceed if you are wanting to rewrite an existing file or (N)ot:';
             
-            $input_open =  get_input(TRUE);
+            $input_open = get_input(TRUE);
 
             if ($input_open == 'P') {
 
                 $file_save = file_save($items);
 
+                
+
                  echo 'File saved' . "\n" . 'Success!! Your file was saved' . "\n" ;
-            }
+            } 
        }
 
     }
