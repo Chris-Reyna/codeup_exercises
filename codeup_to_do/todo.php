@@ -28,17 +28,21 @@ function get_input($upper = FALSE) {
 }
 
 function file_open($file = TRUE) {
-    //echo 'which file would you like to open?:"\n" ';
-    //$name_file = get_input(TRUE); 
+    echo 'which file would you like to open?:';
+    $name_file = get_input(TRUE); 
 
 //need to add variable for file name and option for which file they want
+    $filename = $name_file;
 
-    $open = fopen( 'data/to_list.txt', "r");
+    $handle = fopen($filename, "r");
 
-    $content = fread($open, filesize('data/to_list.txt'));
+    $content = fread($handle, filesize($filename));
 
-    echo 'end of open';
+    fclose($handle);
+    //echo 'end of open';
     return $content;
+
+    
 }
 
 do {
@@ -46,7 +50,7 @@ do {
     echo list_items($items);
 
   // Show the menu options
-    echo '(N)ew item, (R)emove item, (S)ort items, (F)irst item removal, (L)ast item removal, (O)pen file,(Q)uit : ';
+    echo '(N)ew item, (R)emove item, (S)ort items, (F)irst item removal, (L)ast item removal, (O)pen file, (Q)uit : ';
 
     // Get the input from user
     $input = get_input(TRUE);
@@ -111,7 +115,7 @@ do {
 
        $file = file_open(TRUE);
 
-        echo $file;
+        echo $file . "\n";
     }
 
 
